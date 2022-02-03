@@ -18,18 +18,7 @@ exports.getProducts = async (req, res) => {
   }
 };
 
-exports.productCreate = async (req, res) => {
-  try {
-    if (req.file) {
-      req.body.image = `/${req.file.path}`;
-      req.body.image = req.body.image.replace('\\', '/');
-    }
-    const newProduct = await Product.create(req.body);
-    return res.status(201).json(newProduct);
-  } catch (error) {
-    next(error);
-  }
-};
+
 
 exports.productDelete = async (req, res, next) => {
   try {

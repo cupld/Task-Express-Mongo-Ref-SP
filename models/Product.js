@@ -11,6 +11,8 @@ const ProductSchema = new mongoose.Schema(
     },
     image: String,
     quantity: Number,
+    shop: { type: mongoose.Schema.Types.ObjectId, ref: "Shop"},
+    products: [{type: mongoose.Schema.Types.ObjectId, ref: "Product"}],
   },
   { timestamps: true }
 );
